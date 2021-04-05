@@ -1,4 +1,4 @@
-class Transaksi {
+class TransaksiItem {
   int _id;
   double _totalHarga;
   String _metodePembayaran;
@@ -24,11 +24,11 @@ class Transaksi {
   set statusPembayaran(value) => this._statusPembayaran = value;
 
   // konstruktor versi 1
-  Transaksi(this._totalHarga, this._metodePembayaran, this._ekspedisi,
+  TransaksiItem(this._totalHarga, this._metodePembayaran, this._ekspedisi,
       this._statusPembayaran);
 
   // konstruktor versi 2: konversi dari Map ke Item
-  Transaksi.fromMap(Map<String, dynamic> map) {
+  TransaksiItem.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
     this._totalHarga = map['totalHarga'];
     this._metodePembayaran = map['metodePembayaran'];

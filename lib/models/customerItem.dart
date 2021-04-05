@@ -1,4 +1,4 @@
-class Customer {
+class CustomerItem {
   int _id;
   String _nama;
   String _notelp;
@@ -19,10 +19,10 @@ class Customer {
   set alamat(value) => this._alamat = value;
 
   // konstruktor versi 1
-  Customer(this._nama, this._notelp, this._alamat);
+  CustomerItem(this._nama, this._notelp, this._alamat);
 
   // konstruktor versi 2: konversi dari Map ke Item
-  Customer.fromMap(Map<String, dynamic> map) {
+  CustomerItem.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
     this._notelp = map['notelp'];
     this._alamat = map['alamat'];
