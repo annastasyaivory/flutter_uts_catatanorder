@@ -1,11 +1,15 @@
 class TransaksiItem {
   int _id;
+  int _customerId;
+
   double _totalHarga;
   String _metodePembayaran;
   String _ekspedisi;
   String _statusPembayaran;
 
   int get id => this._id;
+
+  get customerId => this._customerId;
 
   get totalHarga => this._totalHarga;
 

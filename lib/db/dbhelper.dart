@@ -16,7 +16,7 @@ class DbHelper {
 
     //create, read databases
     var daftarLaguDatabase = openDatabase(path,
-        version: 1, onCreate: _createDb, onUpgrade: _onUpgrade);
+        version: 2, onCreate: _createDb, onUpgrade: _onUpgrade);
     //mengembalikan nilai object sebagai hasil dari fungsinya
     return daftarLaguDatabase;
   }
@@ -29,22 +29,24 @@ class DbHelper {
 
   // untuk membuat tabel pada database
   void _createDb(Database db, int version) async {
-    var batchTemp = db.batch();
+    Batch batch = db.batch();
     // tabel customerItem
-    await batchTemp.execute('''CREATE TABLE customerItem (
+    batch.execute('''CREATE TABLE customerItem (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nama TEXT,
 notelp TEXT,
 alamat TEXT)''');
     // tabel transaksiItem
-    await batchTemp.execute('''CREATE TABLE transaksiItem (
+    batch.execute('''CREATE TABLE transaksiItem (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 totalHarga DOUBLE,
 metodePembayaran TEXT,
 ekspedisi TEXT,
-statusPembayaran TEXT, 
+statusPembayaran TEXT,
+customerId INTEGER, 
+          FOREIGN KEY (customerId) REFERENCES customerItem(id) 
           )''');
-    batchTemp.commit();
+    List<dynamic> res = await batch.commit();
   }
 
   //select data tabel CustomerItem
