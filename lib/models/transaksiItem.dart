@@ -2,7 +2,7 @@ class TransaksiItem {
   int _id;
   int _customerId;
 
-  double _totalHarga;
+  int _totalHarga;
   String _metodePembayaran;
   String _ekspedisi;
   String _statusPembayaran;

@@ -23,11 +23,11 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
   Widget build(BuildContext context) {
     //kondisi
     if (transaksiItem != null) {
-      totalHargaController.text = transaksiItem.totalHarga;
+      totalHargaController.text = transaksiItem.totalHarga.toString();
       metodePembayaranController.text = transaksiItem.metodePembayaran;
       ekspedisiController.text = transaksiItem.ekspedisi;
       statusPembayaranController.text = transaksiItem.statusPembayaran;
-      customerIdController.text = transaksiItem.customerId;
+      customerIdController.text = transaksiItem.customerId.toString();
     }
     //rubah
     return Scaffold(
@@ -138,15 +138,17 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
                           // tambah data
                           transaksiItem = TransaksiItem(
                             int.parse(customerIdController.text),
-                            double.parse(totalHargaController.text),
+                            int.parse(totalHargaController.text),
                             metodePembayaranController.text,
                             ekspedisiController.text,
                             statusPembayaranController.text,
                           );
                         } else {
                           // ubah data
-                          transaksiItem.customerId = customerIdController.text;
-                          transaksiItem.totalHarga = totalHargaController.text;
+                          transaksiItem.customerId =
+                              int.parse(customerIdController.text);
+                          transaksiItem.totalHarga =
+                              int.parse(totalHargaController.text);
                           transaksiItem.metodePembayaran =
                               metodePembayaranController.text;
                           transaksiItem.ekspedisi = ekspedisiController.text;

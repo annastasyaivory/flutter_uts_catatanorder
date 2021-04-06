@@ -39,7 +39,7 @@ alamat TEXT)''');
     // tabel transaksiItem
     batch.execute('''CREATE TABLE transaksiItem (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-totalHarga DOUBLE,
+totalHarga INTEGER,
 metodePembayaran TEXT,
 ekspedisi TEXT,
 statusPembayaran TEXT,
