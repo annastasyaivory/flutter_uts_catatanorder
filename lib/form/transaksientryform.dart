@@ -112,7 +112,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
                 controller: statusPembayaranController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  labelText: 'Status Pembayaran',
+                  labelText: 'Status Pembayaran (LUNAS/BELUM LUNAS)',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                   ),
