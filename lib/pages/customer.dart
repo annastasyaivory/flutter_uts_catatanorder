@@ -100,8 +100,24 @@ class CustomerState extends State<Customer> {
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(this.itemList[index].notelp),
-                Text(this.itemList[index].alamat),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.call,
+                      color: Colors.black,
+                    ),
+                    Text(' ' + this.itemList[index].notelp),
+                  ],
+                ),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.home,
+                      color: Colors.black,
+                    ),
+                    Text(' ' + this.itemList[index].alamat),
+                  ],
+                ),
               ],
             ),
             // widget yang akan menampilkan setelah title

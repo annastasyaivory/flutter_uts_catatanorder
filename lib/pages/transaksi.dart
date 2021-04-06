@@ -92,16 +92,45 @@ class TransaksiState extends State<Transaksi> {
                 ),
               ],
             ),
-            title: Text(
-              'Rp ' + this.itemList[index].totalHarga.toString(),
-              style: textStyle,
-            ),
-            subtitle: Column(
+            title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(this.itemList[index].metodePembayaran),
-                Text(this.itemList[index].ekspedisi),
-                Text(this.itemList[index].statusPembayaran),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.money,
+                      color: Colors.black,
+                    ),
+                    Text(' Rp ' + this.itemList[index].totalHarga.toString()),
+                  ],
+                ),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.comment_bank,
+                      color: Colors.black,
+                    ),
+                    Text(' ' + this.itemList[index].metodePembayaran),
+                  ],
+                ),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.send,
+                      color: Colors.black,
+                    ),
+                    Text(' ' + this.itemList[index].ekspedisi),
+                  ],
+                ),
+                Row(
+                  children: [
+                    new Icon(
+                      Icons.attach_money_outlined,
+                      color: Colors.black,
+                    ),
+                    Text(' ' + this.itemList[index].statusPembayaran),
+                  ],
+                ),
               ],
             ),
             // widget yang akan menampilkan setelah title

@@ -12,63 +12,67 @@ class Home extends StatelessWidget {
         title: Text('Catatan Orderan'),
         backgroundColor: Colors.blueGrey[200],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            height: 60,
-            width: 120,
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20.0),
+      body: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 150,
+              margin: EdgeInsets.all(10),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
+                child: Column(
+                  children: [
+                    new Icon(
+                      Icons.account_circle,
+                      size: 100.0,
+                      color: Colors.black,
+                    ),
+                    Text("Customer",
+                        style: TextStyle(
+                            fontSize: 27, color: Color.fromRGBO(0, 0, 0, 1))),
+                  ],
                 ),
-                color: Colors.green),
-            child: RaisedButton(
-              child: Text("Customer",
-                  style: TextStyle(fontSize: 20, color: Colors.black)),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Customer()),
-                );
-              },
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Customer()),
+                  );
+                },
+              ),
             ),
-          ),
-          Container(
-            height: 60,
-            width: 120,
-            margin: EdgeInsets.all(10),
-            child: RaisedButton(
-              child: Text("Transaksi",
-                  style: TextStyle(fontSize: 20, color: Colors.black)),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Transaksi()),
-                );
-              },
+            Container(
+              height: 150,
+              margin: EdgeInsets.all(10),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Color.fromRGBO(0, 0, 0, 1))),
+                child: Column(
+                  children: [
+                    new Icon(
+                      Icons.wallet_travel_rounded,
+                      size: 100.0,
+                      color: Colors.black,
+                    ),
+                    Text("Transaksi",
+                        style: TextStyle(
+                            fontSize: 27, color: Color.fromRGBO(0, 0, 0, 1))),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Transaksi()),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
-
-  // BoxDecoration buildBoxDecoration() {
-  //   return BoxDecoration(
-  //       borderRadius: BorderRadius.all(Radius.circular(12)),
-  //       gradient: LinearGradient(
-  //         begin: Alignment.topCenter,
-  //         end: Alignment.bottomCenter,
-  //         //jumlah stop berbanding lurus dengan jumlah warna
-  //         stops: [0.3, 0.6, 0.9],
-  //         colors: [
-  //           Color.fromRGBO(255, 105, 180, 1), //red-green-blue-o
-  //           Color.fromRGBO(255, 182, 193, 1),
-  //           Color.fromRGBO(255, 192, 203, 1),
-  //         ],
-  //       ),
-  //       boxShadow: []);
-  // }
 }
