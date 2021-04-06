@@ -24,6 +24,7 @@ class CustomerItem {
   // konstruktor versi 2: konversi dari Map ke Item
   CustomerItem.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
+    this._nama = map['nama'];
     this._notelp = map['notelp'];
     this._alamat = map['alamat'];
   }
@@ -32,6 +33,7 @@ class CustomerItem {
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = Map<String, dynamic>();
     map['id'] = this._id;
+    map['nama'] = nama;
     map['notelp'] = notelp;
     map['alamat'] = alamat;
     return map;
