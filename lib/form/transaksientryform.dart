@@ -31,6 +31,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
     return Scaffold(
       appBar: AppBar(
         title: transaksiItem == null ? Text('Tambah') : Text('Ubah'),
+        backgroundColor: Colors.blueGrey[200],
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
           onPressed: () {
@@ -110,7 +111,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
                   // tombol simpan
                   Expanded(
                     child: RaisedButton(
-                      color: Colors.yellow[600],
+                      color: Colors.blueGrey[200],
                       child: Text(
                         'Save',
                         textScaleFactor: 1,
@@ -143,7 +144,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
                   // tombol batal
                   Expanded(
                     child: RaisedButton(
-                      color: Colors.yellow[600],
+                      color: Colors.blueGrey[200],
                       child: Text(
                         'Cancel',
                         textScaleFactor: 1,

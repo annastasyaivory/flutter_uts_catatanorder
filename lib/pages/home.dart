@@ -7,19 +7,26 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Catatan Orderan'),
+        backgroundColor: Colors.blueGrey[200],
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             height: 60,
             width: 120,
-            margin: EdgeInsets.only(top: 300, left: 10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.0),
+                ),
+                color: Colors.green),
             child: RaisedButton(
-              color: Colors.yellow[600],
-              child: Text("Customer", style: TextStyle(fontSize: 20)),
+              child: Text("Customer",
+                  style: TextStyle(fontSize: 20, color: Colors.black)),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -31,10 +38,10 @@ class Home extends StatelessWidget {
           Container(
             height: 60,
             width: 120,
-            margin: EdgeInsets.only(top: 300, right: 10),
+            margin: EdgeInsets.all(10),
             child: RaisedButton(
-              color: Colors.yellow[600],
-              child: Text("Transaksi", style: TextStyle(fontSize: 20)),
+              child: Text("Transaksi",
+                  style: TextStyle(fontSize: 20, color: Colors.black)),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -47,4 +54,21 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  // BoxDecoration buildBoxDecoration() {
+  //   return BoxDecoration(
+  //       borderRadius: BorderRadius.all(Radius.circular(12)),
+  //       gradient: LinearGradient(
+  //         begin: Alignment.topCenter,
+  //         end: Alignment.bottomCenter,
+  //         //jumlah stop berbanding lurus dengan jumlah warna
+  //         stops: [0.3, 0.6, 0.9],
+  //         colors: [
+  //           Color.fromRGBO(255, 105, 180, 1), //red-green-blue-o
+  //           Color.fromRGBO(255, 182, 193, 1),
+  //           Color.fromRGBO(255, 192, 203, 1),
+  //         ],
+  //       ),
+  //       boxShadow: []);
+  // }
 }

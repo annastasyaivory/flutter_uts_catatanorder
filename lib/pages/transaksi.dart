@@ -28,8 +28,10 @@ class TransaksiState extends State<Transaksi> {
       itemList = List<TransaksiItem>();
     }
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text('Transaksi'),
+        backgroundColor: Colors.blueGrey[200],
       ),
       body: Column(
         children: [
@@ -40,6 +42,7 @@ class TransaksiState extends State<Transaksi> {
       ),
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
+        backgroundColor: Colors.blueGrey[200],
         child: Icon(Icons.add),
         tooltip: 'Add Transaksi',
         onPressed: () async {
@@ -80,22 +83,20 @@ class TransaksiState extends State<Transaksi> {
           margin: EdgeInsets.all(8),
           child: ListTile(
             // widget yang akan menampilkan sebelum title
-            leading: CircleAvatar(
-              backgroundColor: Colors.black,
-              child: Icon(Icons.wallet_travel_rounded),
+            leading: Text(
+              this.itemList[index].customerId.toString(),
+              style: TextStyle(fontSize: 35),
             ),
             title: Text(
-              this.itemList[index].totalHarga.toString(),
+              'Rp ' + this.itemList[index].totalHarga.toString(),
               style: textStyle,
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Metode Pembayaran: ' +
-                    this.itemList[index].metodePembayaran),
-                Text('Ekspedisi: ' + this.itemList[index].ekspedisi),
-                Text('Status Pembayaran: ' +
-                    this.itemList[index].statusPembayaran),
+                Text(this.itemList[index].metodePembayaran),
+                Text(this.itemList[index].ekspedisi),
+                Text(this.itemList[index].statusPembayaran),
               ],
             ),
             // widget yang akan menampilkan setelah title

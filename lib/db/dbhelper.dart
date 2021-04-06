@@ -52,7 +52,7 @@ customerId INTEGER,
   //select data tabel CustomerItem
   Future<List<Map<String, dynamic>>> selectCustomerItem() async {
     Database db = await this.initDb();
-    var mapList = await db.query('customerItem', orderBy: 'nama');
+    var mapList = await db.query('customerItem', orderBy: 'id');
     return mapList;
   }
 

@@ -29,6 +29,7 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
     return Scaffold(
       appBar: AppBar(
         title: customerItem == null ? Text('Tambah') : Text('Ubah'),
+        backgroundColor: Colors.blueGrey[200],
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
           onPressed: () {
@@ -93,7 +94,7 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
                   // tombol simpan
                   Expanded(
                     child: RaisedButton(
-                      color: Colors.yellow[600],
+                      color: Colors.blueGrey[200],
                       child: Text(
                         'Save',
                         textScaleFactor: 1,
@@ -120,7 +121,7 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
                   // tombol batal
                   Expanded(
                     child: RaisedButton(
-                      color: Colors.yellow[600],
+                      color: Colors.blueGrey[200],
                       child: Text(
                         'Cancel',
                         textScaleFactor: 1,

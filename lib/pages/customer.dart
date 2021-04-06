@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_uts_catatanorder/form/customerentryform.dart';
 import 'package:flutter_uts_catatanorder/db/dbhelper.dart';
 import 'package:flutter_uts_catatanorder/models/customerItem.dart';
@@ -14,7 +16,6 @@ class CustomerState extends State<Customer> {
   DbHelper dbHelper = DbHelper();
   int count = 0;
   List<CustomerItem> itemList;
-
   @override
   // untuk menampilkan data yang sudah diisikan
   void initState() {
@@ -28,8 +29,10 @@ class CustomerState extends State<Customer> {
       itemList = List<CustomerItem>();
     }
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text('Customer'),
+        backgroundColor: Colors.blueGrey[200],
       ),
       body: Column(
         children: [
@@ -40,6 +43,7 @@ class CustomerState extends State<Customer> {
       ),
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
+        backgroundColor: Colors.blueGrey[200],
         child: Icon(Icons.add),
         tooltip: 'Add Customer',
         onPressed: () async {
@@ -80,9 +84,9 @@ class CustomerState extends State<Customer> {
           margin: EdgeInsets.all(8),
           child: ListTile(
             // widget yang akan menampilkan sebelum title
-            leading: CircleAvatar(
-              backgroundColor: Colors.black,
-              child: Icon(Icons.account_circle),
+            leading: Text(
+              this.itemList[index].id.toString(),
+              style: TextStyle(fontSize: 35),
             ),
             title: Text(
               this.itemList[index].nama,
@@ -91,8 +95,8 @@ class CustomerState extends State<Customer> {
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('No Telp: ' + this.itemList[index].notelp),
-                Text('Alamat: ' + this.itemList[index].alamat),
+                Text(this.itemList[index].notelp),
+                Text(this.itemList[index].alamat),
               ],
             ),
             // widget yang akan menampilkan setelah title
