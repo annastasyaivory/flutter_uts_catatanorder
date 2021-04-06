@@ -17,6 +17,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
   TextEditingController metodePembayaranController = TextEditingController();
   TextEditingController ekspedisiController = TextEditingController();
   TextEditingController statusPembayaranController = TextEditingController();
+  TextEditingController customerIdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
       metodePembayaranController.text = transaksiItem.metodePembayaran;
       ekspedisiController.text = transaksiItem.ekspedisi;
       statusPembayaranController.text = transaksiItem.statusPembayaran;
+      customerIdController.text = transaksiItem.customerId;
     }
     //rubah
     return Scaffold(
@@ -43,6 +45,21 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
         padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
         child: ListView(
           children: <Widget>[
+            //cust id
+            Padding(
+              padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+              child: TextField(
+                controller: customerIdController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'Customer ID',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+                onChanged: (value) {},
+              ),
+            ),
             //total harga
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
@@ -120,12 +137,15 @@ class TransaksiEntryFormState extends State<TransaksiEntryForm> {
                         if (transaksiItem == null) {
                           // tambah data
                           transaksiItem = TransaksiItem(
-                              double.parse(totalHargaController.text),
-                              metodePembayaranController.text,
-                              ekspedisiController.text,
-                              statusPembayaranController.text);
+                            int.parse(customerIdController.text),
+                            double.parse(totalHargaController.text),
+                            metodePembayaranController.text,
+                            ekspedisiController.text,
+                            statusPembayaranController.text,
+                          );
                         } else {
                           // ubah data
+                          transaksiItem.customerId = customerIdController.text;
                           transaksiItem.totalHarga = totalHargaController.text;
                           transaksiItem.metodePembayaran =
                               metodePembayaranController.text;

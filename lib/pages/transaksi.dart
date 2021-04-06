@@ -83,9 +83,14 @@ class TransaksiState extends State<Transaksi> {
           margin: EdgeInsets.all(8),
           child: ListTile(
             // widget yang akan menampilkan sebelum title
-            leading: Text(
-              this.itemList[index].customerId.toString(),
-              style: TextStyle(fontSize: 35),
+            leading: Column(
+              children: [
+                Text('CUST ID'),
+                Text(
+                  this.itemList[index].customerId.toString(),
+                  style: TextStyle(fontSize: 35),
+                ),
+              ],
             ),
             title: Text(
               'Rp ' + this.itemList[index].totalHarga.toString(),
