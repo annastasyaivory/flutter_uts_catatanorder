@@ -69,6 +69,7 @@ customerId INTEGER,
     Database db = await this.initDb();
     var mapList = await db.query('customerItem', orderBy: 'id');
     // var mapList = await db.query('customerItem', orderBy: 'id desc', limit: 2);
+    // digunakan untuk menampilkan data list dari id pling atas dan hanya ditampilkan 2 data
     return mapList;
   }
 
