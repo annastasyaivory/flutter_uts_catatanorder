@@ -1,16 +1,50 @@
 # flutter_uts_catatanorder
 
-A new Flutter project.
+Praktikum Pemrograman Mobile UTS ==> Aplikasi Pencatatan Orderan
 
-## Getting Started
+## Tampilan Awal 
+<img src="images/1.jpeg" width="300" />
 
-This project is a starting point for a Flutter application.
+## Customer
+<img src="images/2.jpeg" width="300" />
 
-A few resources to get you started if this is your first Flutter project:
+## Tambah Data Customer
+<p float="left">
+  <img src="/images/3.jpeg" width="200" />
+  <img src="/images/4.jpeg" width="200" /> 
+  <img src="/images/5.jpeg" width="200" />
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Edit Data Customer (Klik Icon Edit) => (Edit Kolom Nama)
+<p float="left">
+  <img src="/images/6.jpeg" width="300" />
+  <img src="/images/7.jpeg" width="300" /> 
+</p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Hapus Data Customer (Klik Icon Trash)
+<p float="left">
+  <img src="/images/8.jpeg" width="300" />
+  <img src="/images/9.jpeg" width="300" /> 
+</p>
+
+## Transaksi
+<img src="images/10.jpeg" width="300" />
+
+## Tambah Data Transaksi
+<p float="left">
+  <img src="/images/11.jpeg" width="200" />
+  <img src="/images/12.jpeg" width="200" /> 
+  <img src="/images/13.jpeg" width="200" />
+</p>
+
+## Edit Data Transaksi (Klik Icon Edit) => (Edit Kolom Status Pembayaran)
+<p float="left">
+  <img src="/images/14.jpeg" width="300" />
+  <img src="/images/15.jpeg" width="300" /> 
+</p>
+
+## Hapus Data Transaksi (Klik Icon Trash)
+<p float="left">
+  <img src="/images/16.jpeg" width="300" />
+  <img src="/images/17.jpeg" width="300" /> 
+</p>
