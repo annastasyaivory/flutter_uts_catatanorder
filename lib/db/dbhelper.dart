@@ -68,6 +68,7 @@ customerId INTEGER,
   Future<List<Map<String, dynamic>>> selectCustomerItem() async {
     Database db = await this.initDb();
     var mapList = await db.query('customerItem', orderBy: 'id');
+    // var mapList = await db.query('customerItem', orderBy: 'id desc', limit: 2);
     return mapList;
   }
 
