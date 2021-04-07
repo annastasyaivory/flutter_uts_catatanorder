@@ -1,4 +1,4 @@
-import 'package:flutter_uts_catatanorder/models/customerItem.dart';
+import 'package:flutter_uts_catatanorder/models/customerItem.dart'; //import file model untuk tabel CustomerItem
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +13,12 @@ class CustomerEntryForm extends StatefulWidget {
 class CustomerEntryFormState extends State<CustomerEntryForm> {
   CustomerItem customerItem;
   CustomerEntryFormState(this.customerItem);
-  TextEditingController namaController = TextEditingController();
-  TextEditingController notelpController = TextEditingController();
-  TextEditingController alamatController = TextEditingController();
+  TextEditingController namaController =
+      TextEditingController(); //controller untuk nama
+  TextEditingController notelpController =
+      TextEditingController(); //controller untuk notelp
+  TextEditingController alamatController =
+      TextEditingController(); //controller untuk alamat
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +31,11 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
     //rubah
     return Scaffold(
       appBar: AppBar(
-        title: customerItem == null ? Text('Tambah') : Text('Ubah'),
+        title: customerItem == null
+            ? Text('Tambah')
+            : Text('Ubah'), //title app bar disesuaikan kondisi
         backgroundColor: Colors.blueGrey[200],
+        //icon button untuk back ke halaman sebelumnya
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
           onPressed: () {
@@ -40,12 +46,13 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
       body: Padding(
         padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
         child: ListView(
+          //penggunaan listview agar berjajar
           children: <Widget>[
             //nama
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: TextField(
-                controller: namaController,
+                controller: namaController, //mengontrol teks yang sedang diedit
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   labelText: 'Nama',
@@ -60,7 +67,8 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: TextField(
-                controller: notelpController,
+                controller:
+                    notelpController, //mengontrol teks yang sedang diedit
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'No Telp',
@@ -75,7 +83,8 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: TextField(
-                controller: alamatController,
+                controller:
+                    alamatController, //mengontrol teks yang sedang diedit
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   labelText: 'Alamat',
@@ -90,6 +99,7 @@ class CustomerEntryFormState extends State<CustomerEntryForm> {
             Padding(
               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
               child: Row(
+                //penggunaan row agar kedua button berada dalam 1 baris
                 children: <Widget>[
                   // tombol simpan
                   Expanded(

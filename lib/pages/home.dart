@@ -1,3 +1,4 @@
+//import file pages lain untuk dipanggil
 import 'package:flutter_uts_catatanorder/pages/customer.dart';
 import 'package:flutter_uts_catatanorder/pages/transaksi.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,7 +39,9 @@ class Home extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Customer()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Customer()), //panggil fungsi dari file customer.dart untuk menampilkan listview isi tabel
                   );
                 },
               ),
@@ -65,7 +68,9 @@ class Home extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Transaksi()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Transaksi()), //panggil fungsi dari file transaksi.dart untuk menampilkan listview isi tabel
                   );
                 },
               ),

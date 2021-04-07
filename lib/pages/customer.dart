@@ -1,11 +1,11 @@
 import 'dart:ui';
-
-import 'package:flutter_uts_catatanorder/form/customerentryform.dart';
-import 'package:flutter_uts_catatanorder/db/dbhelper.dart';
-import 'package:flutter_uts_catatanorder/models/customerItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
+//import file model, entryform, dan juga dbhelper
+import 'package:flutter_uts_catatanorder/form/customerentryform.dart';
+import 'package:flutter_uts_catatanorder/db/dbhelper.dart';
+import 'package:flutter_uts_catatanorder/models/customerItem.dart';
 
 class Customer extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class CustomerState extends State<Customer> {
   int count = 0;
   List<CustomerItem> itemList;
   @override
-  // untuk menampilkan data yang sudah diisikan
+  // untuk menampilkan data yang sudah diisikan ketika aplikasi dibuka untuk bbrp kali
   void initState() {
     super.initState();
     updateListView();
@@ -41,6 +41,7 @@ class CustomerState extends State<Customer> {
           ),
         ],
       ),
+      //button plus pada pojok kiri bawah untuk add data
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
         backgroundColor: Colors.blueGrey[200],
@@ -73,6 +74,8 @@ class CustomerState extends State<Customer> {
     return result;
   }
 
+  //widget list view untuk menampilkan widget yang bisa discroll
+  //item count menyesuaikan data yang sudah ada
   ListView createListView() {
     TextStyle textStyle = Theme.of(context).textTheme.headline5;
     return ListView.builder(
@@ -84,17 +87,18 @@ class CustomerState extends State<Customer> {
           margin: EdgeInsets.all(8),
           child: ListTile(
             // widget yang akan menampilkan sebelum title
+            // bagian kanan kotak
             leading: Column(
               children: [
                 Text('CUST ID'),
                 Text(
-                  this.itemList[index].id.toString(),
+                  this.itemList[index].id.toString(), //menampilkan data cust id
                   style: TextStyle(fontSize: 35),
                 ),
               ],
             ),
             title: Text(
-              this.itemList[index].nama,
+              this.itemList[index].nama, //menampilkan nama
               style: textStyle,
             ),
             subtitle: Column(
@@ -106,7 +110,8 @@ class CustomerState extends State<Customer> {
                       Icons.call,
                       color: Colors.black,
                     ),
-                    Text(' ' + this.itemList[index].notelp),
+                    Text(
+                        ' ' + this.itemList[index].notelp), //menampilkan notelp
                   ],
                 ),
                 Row(
@@ -115,7 +120,8 @@ class CustomerState extends State<Customer> {
                       Icons.home,
                       color: Colors.black,
                     ),
-                    Text(' ' + this.itemList[index].alamat),
+                    Text(
+                        ' ' + this.itemList[index].alamat), //menampilkan alamat
                   ],
                 ),
               ],
@@ -124,6 +130,7 @@ class CustomerState extends State<Customer> {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                //icon button untuk edit
                 IconButton(
                   icon: Icon(Icons.edit),
                   onPressed: () async {
@@ -133,6 +140,7 @@ class CustomerState extends State<Customer> {
                     if (item != null) editItem(item);
                   },
                 ),
+                //icon button untuk delete
                 IconButton(
                   icon: Icon(Icons.delete),
                   onPressed: () async {

@@ -1,9 +1,11 @@
-import 'package:flutter_uts_catatanorder/form/transaksientryform.dart';
-import 'package:flutter_uts_catatanorder/db/dbhelper.dart';
-import 'package:flutter_uts_catatanorder/models/transaksiItem.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sqflite/sqflite.dart';
+//import file model, entryform, dan juga dbhelper
+import 'package:flutter_uts_catatanorder/form/transaksientryform.dart';
+import 'package:flutter_uts_catatanorder/db/dbhelper.dart';
+import 'package:flutter_uts_catatanorder/models/transaksiItem.dart';
 
 class Transaksi extends StatefulWidget {
   @override
@@ -16,7 +18,7 @@ class TransaksiState extends State<Transaksi> {
   List<TransaksiItem> itemList;
 
   @override
-  // untuk menampilkan data yang sudah diisikan
+  // untuk menampilkan data yang sudah diisikan ketika aplikasi dibuka untuk bbrp kali
   void initState() {
     super.initState();
     updateListView();
@@ -40,6 +42,7 @@ class TransaksiState extends State<Transaksi> {
           ),
         ],
       ),
+      //button plus pada pojok kiri bawah untuk add data
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.black,
         backgroundColor: Colors.blueGrey[200],
@@ -72,6 +75,8 @@ class TransaksiState extends State<Transaksi> {
     return result;
   }
 
+  //widget list view untuk menampilkan widget yang bisa discroll
+  //item count menyesuaikan data yang sudah ada
   ListView createListView() {
     TextStyle textStyle = Theme.of(context).textTheme.headline5;
     return ListView.builder(
@@ -83,11 +88,15 @@ class TransaksiState extends State<Transaksi> {
           margin: EdgeInsets.all(8),
           child: ListTile(
             // widget yang akan menampilkan sebelum title
+            // bagian kanan kotak
             leading: Column(
               children: [
                 Text('CUST ID'),
                 Text(
-                  this.itemList[index].customerId.toString(),
+                  this
+                      .itemList[index]
+                      .customerId
+                      .toString(), //menampilkan data cust id
                   style: TextStyle(fontSize: 35),
                 ),
               ],
@@ -101,7 +110,11 @@ class TransaksiState extends State<Transaksi> {
                       Icons.money,
                       color: Colors.black,
                     ),
-                    Text(' Rp ' + this.itemList[index].totalHarga.toString()),
+                    Text(' Rp ' +
+                        this
+                            .itemList[index]
+                            .totalHarga
+                            .toString()), //menampilkan total harga
                   ],
                 ),
                 Row(
@@ -110,7 +123,10 @@ class TransaksiState extends State<Transaksi> {
                       Icons.comment_bank,
                       color: Colors.black,
                     ),
-                    Text(' ' + this.itemList[index].metodePembayaran),
+                    Text(' ' +
+                        this
+                            .itemList[index]
+                            .metodePembayaran), //menampilkan metode pembayran
                   ],
                 ),
                 Row(
@@ -119,7 +135,8 @@ class TransaksiState extends State<Transaksi> {
                       Icons.send,
                       color: Colors.black,
                     ),
-                    Text(' ' + this.itemList[index].ekspedisi),
+                    Text(' ' +
+                        this.itemList[index].ekspedisi), //menampilkan ekspedisi
                   ],
                 ),
                 Row(
@@ -128,7 +145,10 @@ class TransaksiState extends State<Transaksi> {
                       Icons.attach_money_outlined,
                       color: Colors.black,
                     ),
-                    Text(' ' + this.itemList[index].statusPembayaran),
+                    Text(' ' +
+                        this
+                            .itemList[index]
+                            .statusPembayaran), //menampilkan status pembayran
                   ],
                 ),
               ],
@@ -137,6 +157,7 @@ class TransaksiState extends State<Transaksi> {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                //icon button untuk edit
                 IconButton(
                   icon: Icon(Icons.edit),
                   onPressed: () async {
@@ -146,6 +167,7 @@ class TransaksiState extends State<Transaksi> {
                     if (item != null) editItem(item);
                   },
                 ),
+                //icon button untuk delete
                 IconButton(
                   icon: Icon(Icons.delete),
                   onPressed: () async {

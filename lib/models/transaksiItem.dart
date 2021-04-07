@@ -1,30 +1,37 @@
 class TransaksiItem {
+  //inisialisasi atribut untuk tabel TransaksiItem
   int _id;
   int _customerId;
-
   int _totalHarga;
   String _metodePembayaran;
   String _ekspedisi;
   String _statusPembayaran;
 
+  //setter dan getter tiap atribut
+  //id (auto-increment) jadi tidak ada set nya
   int get id => this._id;
 
+  //cust id
   get customerId => this._customerId;
 
   set customerId(value) => this._customerId = value;
 
+  //total harga
   get totalHarga => this._totalHarga;
 
   set totalHarga(value) => this._totalHarga = value;
 
+  //metode pembayaran
   get metodePembayaran => this._metodePembayaran;
 
   set metodePembayaran(value) => this._metodePembayaran = value;
 
+  //ekspedisi
   get ekspedisi => this._ekspedisi;
 
   set ekspedisi(value) => this._ekspedisi = value;
 
+  //status pembayaran
   get statusPembayaran => this._statusPembayaran;
 
   set statusPembayaran(value) => this._statusPembayaran = value;

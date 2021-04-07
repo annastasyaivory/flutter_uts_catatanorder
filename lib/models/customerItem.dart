@@ -1,19 +1,25 @@
 class CustomerItem {
+  //inisialisasi atribut dari kolom CustomerItem
   int _id;
   String _nama;
   String _notelp;
   String _alamat;
 
+  //setter dan getter tiap atribut
+  //id (auto-increment) jadi tidak ada set nya
   int get id => this._id;
 
+  //nama
   get nama => this._nama;
 
   set nama(value) => this._nama = value;
 
+  //notelp
   get notelp => this._notelp;
 
   set notelp(value) => this._notelp = value;
 
+  //alamat
   get alamat => this._alamat;
 
   set alamat(value) => this._alamat = value;

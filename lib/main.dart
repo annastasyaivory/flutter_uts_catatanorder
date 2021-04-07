@@ -1,4 +1,4 @@
-import 'package:flutter_uts_catatanorder/pages/home.dart';
+import 'package:flutter_uts_catatanorder/pages/home.dart'; //import file home untuk dipanggil pertama
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: Home(),
+      home: Home(), //panggil file home untuk tampil pertama kali pada aplikasi
     );
   }
 }

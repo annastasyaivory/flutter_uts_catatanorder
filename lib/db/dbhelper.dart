@@ -1,34 +1,46 @@
 import 'dart:io';
-import 'package:flutter_uts_catatanorder/models/customerItem.dart';
-import 'package:flutter_uts_catatanorder/models/transaksiItem.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+//import file model yg telah dibuat
+import 'package:flutter_uts_catatanorder/models/customerItem.dart';
+import 'package:flutter_uts_catatanorder/models/transaksiItem.dart';
 
 class DbHelper {
   static DbHelper _dbHelper;
   static Database _database;
   DbHelper._createObject();
 
+  // future adalah tipe data yang terpanggil dengan adanya delay atau keterlambatan
+  // async : menggunakan future pada sebuah method, sehingga membuat sistem menunggu sampai terjadi Blocking
   Future<Database> initDb() async {
-    //untuk menentukan nama database dan lokasi yg dibuat
+    // await : artinya sistem harus menunggu sampai syntax tersebut selesai berjalan
+    // Method getApplicationDocumentsDirectory() berfungsi untuk mengambil direktori folder aplikasi untuk menempatkan data yang dibuat pengguna sehingga tidak dapat dibuat ulang oleh aplikasi tersebut.
     Directory directory = await getApplicationDocumentsDirectory();
+
+    //untuk menentukan nama database dan lokasi yg dibuat
+    //nama database : catatanOrder
     String path = directory.path + 'catatanOrder.db';
 
-    //create, read databases
-    var daftarLaguDatabase = openDatabase(path,
+    //openDatabase : membuat dan mengakses database
+    // version : level penggunaan database
+    // onCreate : membuat tabel
+    var catatanOrderDatabase = openDatabase(path,
         version: 2, onCreate: _createDb, onUpgrade: _onUpgrade);
+
     //mengembalikan nilai object sebagai hasil dari fungsinya
-    return daftarLaguDatabase;
+    return catatanOrderDatabase;
   }
 
+  //fungsi onUpgrade untuk pembaruan database saat dijalankan
   void _onUpgrade(Database db, int oldVersion, int newVersion) {
     if (oldVersion < newVersion) {
       // db.execute(""); // SQL Query
     }
   }
 
-  // untuk membuat tabel pada database
+  // buat tabel baru dengan nama customerItem dan transaksiItem
   void _createDb(Database db, int version) async {
+    //terdapat 2 tabel jadi menggunakan batch
     Batch batch = db.batch();
     // tabel customerItem
     batch.execute('''CREATE TABLE customerItem (
@@ -48,6 +60,9 @@ customerId INTEGER,
           )''');
     List<dynamic> res = await batch.commit();
   }
+
+  // fungsi untuk melakukan CRUD (create, read, update, delete)
+  // Variable count digunakan untuk menampung hasil SQL ² nya. Bertipe Integer karena ketika sistem berhasil dieksekusi, nilai yang dikeluarkan adalah 1
 
   //select data tabel CustomerItem
   Future<List<Map<String, dynamic>>> selectCustomerItem() async {
